@@ -13,6 +13,8 @@ enum class OpenAiModel(val value: String, val modelName: String) {
     GPT_3_5_TURBO("gpt-3.5-turbo", "GPT-3.5 Turbo"),
     GPT_3_5_TURBO_1106("gpt-3.5-turbo-1106", "GPT-3.5 Turbo 1106"),
     GLM4("glm4", "GLM4"),
+    QWEN_2("qwen2", "通义千问2"),
+    LLAMA_3_1("llama3.1", "llama 3.1"),
 
 
     TTS_1("tts-1", "TTS-1"),
@@ -20,7 +22,7 @@ enum class OpenAiModel(val value: String, val modelName: String) {
 
     companion object {
         fun gptModels(): List<OpenAiModel> {
-            return OpenAiModel.values().filter { it.value.startsWith("gpt") || it.value.startsWith("glm") }.toList()
+            return OpenAiModel.values().filter { !it.value.startsWith("tts") }.toList()
         }
 
         fun ttsModels(): List<OpenAiModel> {
